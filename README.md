@@ -15,3 +15,6 @@
 
 * Algumas screenshots:
 
+    - ![Uma lista com 5 tarefas.](other/Screenshot_1.png)
+
+    - ![Editando uma tarefa.](other/Screenshot_2.png)

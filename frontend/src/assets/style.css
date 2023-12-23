@@ -17,6 +17,7 @@ body{
 }
 
 h1{
+    color: white;
     text-align: center;
 }
 
@@ -29,6 +30,8 @@ h1{
     background-color: var(--cor5);
     justify-content: center;
     border-radius: 5px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.425);
+    gap: 5px;
 }
 
 .TodoForm{
@@ -63,11 +66,19 @@ h1{
     display: flex;
     justify-content: space-between;
     background-color: var(--cor3);
-    padding: 20px;
+    padding: 15px;
     border-radius: 5px;
     color: white;
 }
 
+.Todo *{
+    cursor: pointer;
+}
+
 .Todo div *{
     padding: 0px 5px;
+}
+
+.completed{
+    color: green;
 }
