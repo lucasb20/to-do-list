@@ -5,6 +5,8 @@
 
 * É bem simples, você entra no site, escreve suas tarefas que você não quer esquecer, e talvez dá uma olhada nas anteriores.
 
+* Estarei tentando implementar uma API em Django, por enquanto só o frontend está funcional.
+
 * Instruções para instalação:
 
     - Por ser um projeto em React, é necessário ter Nodejs junto com um gerenciador de pacotes, como o NPM que foi usado.
