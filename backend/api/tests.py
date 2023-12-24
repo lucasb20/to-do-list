@@ -10,4 +10,4 @@ class Testing_CRUD(TestCase):
     def Testing_POST(self):
         data = {'task': 'Uma tarefa qualquer.'}
         request = self.factory.post(self.base, data)
-        assert request.method == 'POST'
+        self.assertIs(request.method, 'POST')
