@@ -1,11 +1,13 @@
 
+from rest_framework import routers
 from django.urls import path, include
 from api import views
 
+router = routers.DefaultRouter()
+router.register(r'todo', views.TodoViewSet)
+
 urlpatterns = [
-    path('detail/<int:pk>/', views.get_todo),
-    path('', views.get_todos),
-    path('create/', views.post_todo),
-    path('update/<int:pk>', views.put_todo),
-    path('delete/<int:pk>', views.delete_todo),
+    path('', include(router.urls)),
 ]
+
+urlpatterns+=router.urls

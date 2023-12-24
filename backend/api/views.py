@@ -1,18 +1,10 @@
-from django.shortcuts import render
+from rest_framework import viewsets
+
+from api.models import Todo
+from api.serializers import TodoSerializer
 
 # Create your views here.
 
-def get_todo(request, pk):
-    pass
-
-def get_todos(request):
-    pass
-
-def post_todo(request):
-    pass
-
-def put_todo(request, pk):
-    pass
-
-def delete_todo(request, pk):
-    pass
+class TodoViewSet(viewsets.ModelViewSet):
+    queryset = Todo.objects.all()
+    serializer_class = TodoSerializer
