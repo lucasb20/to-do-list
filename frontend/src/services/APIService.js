@@ -15,16 +15,16 @@ export async function postTodo(data=null){
 }
 
 export async function getTodoDetail(pk=null){
-    const response = await axios.get(`${API_URL}/api/todo/${pk}`)
+    const response = await axios.get(`${API_URL}/api/todo/${pk}/`)
     return response.data
 }
 
 export async function putTodoDetail(pk=null, data=null){
-    const response = await axios.put(`${API_URL}/api/todo/${pk}`,data)
+    const response = await axios.put(`${API_URL}/api/todo/${pk}/`,data)
     return response.data
 }
 
 export async function deleteTodoDetail(pk=null){
-    const response = await axios.delete(`${API_URL}/api/todo/${pk}`)
+    const response = await axios.delete(`${API_URL}/api/todo/${pk}/`)
     return response.data
 }

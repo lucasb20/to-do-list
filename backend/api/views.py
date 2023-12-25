@@ -29,14 +29,14 @@ def todo_detail(request, pk, format=None):
     try:
         todo = Todo.objects.get(pk=pk)
     except Todo.DoesNotExist:
-        Response(status=status.HTTP_404_NOT_FOUND)
+        return Response({"message":"Esse item não foi encontrado."},status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
         serializer = TodoSerializer(todo)
         return Response(serializer.data)
     
     elif request.method == 'PUT':
-        data = JSONParser.parse(request)
+        data = JSONParser().parse(request)
         serializer = TodoSerializer(todo, data=data)
         if serializer.is_valid():
             serializer.save()
