@@ -1,11 +1,11 @@
 # to-do-list
  Aplicativo de "To Do List", vulgo lista de tarefas, em React.
 
-* Projeto de To Do List para praticar um pouco.
+* Projeto de To Do List, apenas para praticar um pouco.
 
 * É bem simples, você entra no site, escreve suas tarefas que você não quer esquecer, e talvez dá uma olhada nas anteriores.
 
-* Estarei tentando implementar uma API em Django, por enquanto só o frontend está funcional.
+* Não é um projeto de aplicativo web ideal, visto que o backend está feito de uma forma a armazenar todas as tarefas juntas, então todos os clientes que entrariam no site teriam suas tarefas compartilhadas com todos. Era possível resolver isso implementando uma autenticação, mas, como falei, o intuito desse projeto é só para eu praticar um pouco.
 
 * Instruções para instalação:
 
