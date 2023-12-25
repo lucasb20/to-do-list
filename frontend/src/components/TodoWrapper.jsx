@@ -17,7 +17,12 @@ export function TodoWrapper(){
     }
 
     const toggleComplete = id =>{
-        setTodos(todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo ))
+        putTodoDetail(id, {completed: false})
+            .then(data => {
+                setTodos(todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo ))
+                console.log(data)
+            })
+            .catch(err => console.log(err))
     }
 
     const deleteTodo = id => {
