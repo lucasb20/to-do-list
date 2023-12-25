@@ -9,11 +9,11 @@
 
 * Instruções para instalação:
 
-    - Por ser um projeto em React, é necessário ter Nodejs junto com um gerenciador de pacotes, como o NPM que foi usado.
+    - Por ser um projeto em React e Django, é necessário ter Nodejs junto com um gerenciador de pacotes, como o NPM que foi usado, e Python.
 
-    - Entre na pasta do Projeto e digite 'npm install' para instalar as dependências.
-
-    - Execute 'npm run dev' para rodar o modo de desenvolvimento.
+    - Entre na pasta do frontend, digite 'npm install' para instalar as dependências e execute 'npm run dev' para rodar o modo de desenvolvimento.
+ 
+    - Para rodar a API, entre na pasta backend, digite 'pip install -r requirements.txt' para instalar as dependências e execute 'python manage.py runserver' para rodar o modo de desenvolvimento.
 
 * Algumas screenshots:
 
