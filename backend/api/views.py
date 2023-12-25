@@ -9,10 +9,6 @@ from api.serializers import TodoSerializer
 
 # Create your views here.
 
-class TodoViewSet(viewsets.ModelViewSet):
-    queryset = Todo.objects.all()
-    serializer_class = TodoSerializer
-
 @api_view(['GET', 'POST'])
 def todo_list(request, format=None):
     if request.method == 'GET':

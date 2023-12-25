@@ -1,11 +1,7 @@
 
-from rest_framework import routers
 from rest_framework.urlpatterns import format_suffix_patterns
-from django.urls import path, include
+from django.urls import path
 from api import views
-
-router = routers.DefaultRouter()
-router.register(r'todo', views.TodoViewSet)
 
 urlpatterns = [
     path('todo/', views.todo_list),

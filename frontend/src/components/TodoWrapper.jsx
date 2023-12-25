@@ -1,17 +1,18 @@
 import React, { useState, useEffect } from "react";
-import {v4} from "uuid";
 import { TodoForm } from "./ToDoform";
 import { Todo } from "./Todo";
 import { EditTodoForm } from "./EditingTodoForm";
-import { getTodoList, postTodo } from "../services/APIService";
+import { deleteTodoDetail, getTodoList, postTodo, putTodoDetail } from "../services/APIService";
 
 export function TodoWrapper(){
     const [todos, setTodos] = useState([])
 
     const addTodo = todo => {
-        setTodos([...todos, {id: v4(), task: todo, completed: false, isEditing: false}])
         postTodo({task: todo})
-            .then(data => console.log(data))
+            .then(data => {
+                setTodos([...todos, {id: data.id, task: todo, completed: false, isEditing: false}])
+                console.log(data)
+            })
             .catch(err => console.log(err))
     }
 
@@ -20,8 +21,12 @@ export function TodoWrapper(){
     }
 
     const deleteTodo = id => {
-        setTodos(todos.filter( todo => todo.id !== id ))
-        //deleteTodo()
+        deleteTodoDetail(id)
+        .then(data => {
+            setTodos(todos.filter( todo => todo.id !== id ))
+            console.log(data)
+        })
+        .catch(err => console.log(err))
     }
 
     const editTodo = id => {
@@ -29,8 +34,12 @@ export function TodoWrapper(){
     }
 
     const editTask = (value, id) => {
-        setTodos(todos.map(todo => todo.id === id ? {...todo, task: value, isEditing: !todo.isEditing} : todo ))
-        //editTodo()
+        putTodoDetail(id, {task: value, completed: false})
+            .then(data => {
+                setTodos(todos.map(todo => todo.id === id ? {...todo, task: value, isEditing: !todo.isEditing} : todo ))
+                console.log(data)
+            })
+            .catch(err => console.log(err))
     }
 
     useEffect(() => {
