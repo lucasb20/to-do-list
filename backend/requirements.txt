@@ -1,2 +1,4 @@
 flask
 flask-smorest
+sqlalchemy
+flask-sqlalchemy
