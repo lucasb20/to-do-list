@@ -1,5 +1,2 @@
-django
-djangorestframework
-markdown
-django-filter
-django-cors-headers
+flask
+flask-smorest
