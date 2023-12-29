@@ -8,7 +8,7 @@ export function TodoWrapper(){
     const [todos, setTodos] = useState([])
 
     const addTodo = todo => {
-        postTodo({task: todo})
+        postTodo({task: todo, completed: false})
             .then(data => {
                 setTodos([...todos, {id: data.id, task: todo, completed: false, isEditing: false}])
                 console.log(data)
