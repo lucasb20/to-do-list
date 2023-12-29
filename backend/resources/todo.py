@@ -2,8 +2,8 @@ from flask.views import MethodView
 from flask_smorest import Blueprint, abort
 from sqlalchemy.exc import SQLAlchemyError
 from backend.schemas import TodoSchema, TodoUpdateSchema
-from models import TodoModel
-from db import db
+from backend.models import TodoModel
+from backend.db import db
 
 bp = Blueprint("todos", __name__, description="Operations on todos")
 
@@ -27,6 +27,7 @@ class Todo(MethodView):
 
 @bp.route("/todo/<id>")
 class Todo(MethodView):
+    @bp.response(200,TodoSchema)
     @bp.arguments(TodoUpdateSchema)
     def put(self,todo_data,id):
         todo = TodoModel.query.get(id)
@@ -41,6 +42,7 @@ class Todo(MethodView):
 
         return todo
 
+    @bp.response(200, TodoSchema)
     def delete(self, id):
         todo = TodoModel.query.get_or_404(id)
         try:
