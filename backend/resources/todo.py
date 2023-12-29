@@ -13,8 +13,8 @@ class Todo(MethodView):
 
 @bp.route("/todo/<id>")
 class Todo(MethodView):
-    def put(self):
+    def put(self, id):
         pass
     
-    def delete(self):
+    def delete(self, id):
         pass

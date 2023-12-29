@@ -1,7 +1,7 @@
 # to-do-list
- Aplicativo de "To Do List", vulgo lista de tarefas, em React.
+ Aplicativo de "To Do List", vulgo lista de tarefas, em React e Flask.
 
-* Projeto de To Do List, apenas para praticar um pouco.
+* Projeto de To Do List, apenas para eu praticar um pouco.
 
 * É bem simples, você entra no site, escreve suas tarefas que você não quer esquecer, e talvez dá uma olhada nas anteriores.
 
@@ -9,11 +9,11 @@
 
 * Instruções para instalação:
 
-    - Por ser um projeto em React e Django, é necessário ter Nodejs junto com um gerenciador de pacotes, como o NPM que foi usado, e Python.
+    - Por ser um projeto em React e Flask, é necessário ter Nodejs junto com um gerenciador de pacotes, como o NPM que foi usado, e Python.
 
     - Entre na pasta do frontend, digite 'npm install' para instalar as dependências e execute 'npm run dev' para rodar o modo de desenvolvimento.
  
-    - Para rodar a API, entre na pasta backend, digite 'pip install -r requirements.txt' para instalar as dependências e execute 'python manage.py runserver' para rodar o modo de desenvolvimento.
+    - Para rodar a API, entre na pasta backend, digite 'pip install -r requirements.txt' para instalar as dependências e execute 'flask --app api run' para rodar o modo de desenvolvimento.
 
 * Algumas screenshots:
 
