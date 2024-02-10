@@ -1,8 +1,5 @@
 import { ChangeEvent, FormEvent, useState } from "react";
-
-interface TodoFormProps{
-    addTodo: (todo: string) => void
-}
+import { TodoFormProps } from "../services/Interfaces";
 
 export function TodoForm({addTodo} : TodoFormProps){
     const [value, setValue] = useState("")

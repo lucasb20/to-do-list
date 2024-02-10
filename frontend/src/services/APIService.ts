@@ -1,3 +1,5 @@
+import { TodoBase } from "./Interfaces"
+
 const API_URL = 'http://127.0.0.1:5000'
 
 export async function getTodoList(){
@@ -6,7 +8,7 @@ export async function getTodoList(){
     return response.json()
 }
 
-export async function postTodo(data=null){
+export async function postTodo(data : TodoBase){
     //const response = await axios.post(`${API_URL}/todo`,data)
     const response = await fetch(`${API_URL}/todo`, {
         method: 'POST',
@@ -18,7 +20,7 @@ export async function postTodo(data=null){
     return response.json()
 }
 
-export async function putTodoDetail(pk=null, data=null){
+export async function putTodoDetail(pk : number, data : TodoBase){
     //const response = await axios.put(`${API_URL}/todo/${pk}`,data)
     const response = await fetch(`${API_URL}/todo/${pk}`, {
         method: 'PUT',
@@ -30,7 +32,7 @@ export async function putTodoDetail(pk=null, data=null){
     return response.json()
 }
 
-export async function deleteTodoDetail(pk=null){
+export async function deleteTodoDetail(pk : number){
     //const response = await axios.delete(`${API_URL}/todo/${pk}`)
     const response = await fetch(`${API_URL}/todo/${pk}`, {
         method: 'DELETE',
