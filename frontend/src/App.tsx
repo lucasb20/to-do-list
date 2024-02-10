@@ -1,8 +1,11 @@
+import "./assets/style.css"
+import { TodoWrapper } from "./components/TodoWrapper"
 
 function App() {
   return (
     <>
-      <div>Teste</div>
+      <h1>To Do List</h1>
+      <TodoWrapper/>
     </>
   )
 }
