@@ -26,11 +26,15 @@
 1. Enter the backend application folder
 2. Run `pip install -r requirements` command to install dependencies
 3. Run `flask --app api db init` to start migrations, `flask --app api db migrate` to run migrations and `flask --app api db upgrade` to apply migrations to the database
-4. Run `flask --app api run` to run development mode.
+4. Run `flask --app api run` to run development mode
 
 
-* Screenshots:
+**Screenshots**
 
-    - ![A list of 5 tasks.](other/Screenshot_1.png)
+A list of 5 tasks.
 
-    - ![Editing a task.](other/Screenshot_2.png)
+![A list of 5 tasks.](other/Screenshot_1.png)
+
+Editing a task.
+
+![Editing a task.](other/Screenshot_2.png)
