@@ -14,21 +14,23 @@ export function TodoWrapper(){
                     setTodos([...todos, {id: data.id, task: todo, completed: false, isEditing: false}])
                 }
             )
-            .catch(err => console.log(err))
     }
 
     const toggleComplete = (id : number) => {
-        putTodoDetail(id, {task: "", completed: false})
+        for(let i = 0; i < todos.length; i++){
+            if(todos[i].id === id){
+                putTodoDetail(id, {task: todos[i].task, completed: !todos[i].completed})
+                break
+            }
+        }
         setTodos(todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo ))
     }
 
     const deleteTodo = (id : number) => {
         deleteTodoDetail(id)
-        .then(data => {
+        .then(() => {
             setTodos(todos.filter( todo => todo.id !== id ))
-            console.log(data)
         })
-        .catch(err => console.log(err))
     }
 
     const editTodo = (id : number) => {
@@ -37,17 +39,16 @@ export function TodoWrapper(){
 
     const editTask = (value : string, id : number) => {
         putTodoDetail(id, {task: value, completed: false})
-            .then(data => {
+            .then(() => {
                 setTodos(todos.map(todo => todo.id === id ? {...todo, task: value, isEditing: !todo.isEditing} : todo ))
-                console.log(data)
             })
-            .catch(err => console.log(err))
     }
 
     useEffect(() => {
         getTodoList()
-            .then(data => setTodos(data))
-            .catch(err => console.error(err))
+        .then(data => {
+            setTodos(data)
+        })
     }, [])
 
     return(
