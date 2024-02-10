@@ -2,14 +2,14 @@ from flask import Flask
 from flask_cors import CORS
 from flask_smorest import Api
 from flask_migrate import Migrate
-from backend.resources import bp as TodoBlueprint
+from backend.resources import TodoBlueprint
 from backend.db import db
 
 def create_app():
     app = Flask(__name__)
 
     app.config["PROPAGATE_EXCEPTIONS"] = True
-    app.config["API_TITLE"] = "Stores REST API"
+    app.config["API_TITLE"] = "to-do-list REST API"
     app.config["API_VERSION"] = "v1"
     app.config["OPENAPI_VERSION"] = "3.0.3"
     app.config["OPENAPI_URL_PREFIX"] = "/"

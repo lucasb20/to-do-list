@@ -1,5 +1,4 @@
 from backend.db import db
-from flask_sqlalchemy import SQLAlchemy
 
 class TodoModel(db.Model):
     __tablename__ = "Todos"
