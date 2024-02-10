@@ -280,5 +280,4 @@ cython_debug/
 #.idea/
 
 # Migration files
-
 migrations/

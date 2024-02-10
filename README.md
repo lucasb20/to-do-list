@@ -1,22 +1,36 @@
 # to-do-list
- Aplicativo de "To Do List", vulgo lista de tarefas, em React e Flask.
+ A to-do list application, in React and Flask.
 
-* Projeto de To Do List, apenas para eu praticar um pouco.
+**Description**
 
-* É bem simples, você entra no site, escreve suas tarefas que você não quer esquecer, e talvez dá uma olhada nas anteriores.
+ To Do List project, in which there is a CRUD with tasks and you can mark them as completed or not. You go to the application, write down your tasks that you don't want to forget, and maybe take a look at the previous ones.
 
-* Não é um projeto de aplicativo web ideal, visto que o backend está feito de uma forma a armazenar todas as tarefas juntas, então todos os clientes que entrariam no site teriam suas tarefas compartilhadas com todos. Era possível resolver isso implementando uma autenticação, mas, como falei, o intuito desse projeto é só para eu praticar um pouco.
+ NOTE: It is not an ideal web application project, since the backend is designed in a way to store all tasks together, so all clients who would enter the site would have their tasks shared with everyone. The purpose of this project is just to practice.
 
-* Instruções para instalação:
+**Installation instructions**
 
-    - Por ser um projeto em React e Flask, é necessário ter Nodejs junto com um gerenciador de pacotes, como o NPM que foi usado, e Python.
+**System requirements**
 
-    - Entre na pasta do frontend, digite 'npm install' para instalar as dependências e execute 'npm run dev' para rodar o modo de desenvolvimento.
- 
-    - Para rodar a API, entre na pasta backend, digite 'pip install -r requirements.txt' para instalar as dependências e execute 'flask --app api run' para rodar o modo de desenvolvimento.
+* Python 3.10
+* Node.js 20.10
+* NPM 10.2
 
-* Algumas screenshots:
+**Frontend application installation**
 
-    - ![Uma lista com 5 tarefas.](other/Screenshot_1.png)
+1. Enter the frontend application folder
+2. Run `npm install` to install dependencies
+3. Run `npm run dev` to launch the application in development mode
 
-    - ![Editando uma tarefa.](other/Screenshot_2.png)
+**API installation**
+
+1. Enter the backend application folder
+2. Run `pip install -r requirements` command to install dependencies
+3. Run `flask --app api db init` to start migrations, `flask --app api db migrate` to run migrations and `flask --app api db upgrade` to apply migrations to the database
+4. Run `flask --app api run` to run development mode.
+
+
+* Screenshots:
+
+    - ![A list of 5 tasks.](other/Screenshot_1.png)
+
+    - ![Editing a task.](other/Screenshot_2.png)
