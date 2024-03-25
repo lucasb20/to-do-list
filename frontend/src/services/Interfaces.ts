@@ -1,5 +1,5 @@
 export interface TodoFormProps{
-    addTodo: (todo: string) => void
+    addTodo: (todo: string) => void;
 }
 
 export interface TodoBase{
@@ -7,12 +7,10 @@ export interface TodoBase{
     completed: boolean;
 }
 
-export interface Todo{
+export interface Todo extends TodoBase{
     id: number;
-    task: string;
-    completed: boolean;
 };
-  
+
 export interface TodoProps{
     task: Todo;
     toggleComplete: (taskId: number) => void;
@@ -20,9 +18,11 @@ export interface TodoProps{
     deleteTodo: (taskId: number) => void;
 }
 
-export interface TodoFinal{
-    id: number
-    task: string;
-    completed: boolean;
+export interface TodoFinal extends Todo{
     isEditing: boolean;
+}
+
+export interface EditTodoFormProps{
+    editTask: (taskName: string, taskId: number) => void;
+    task: TodoFinal;
 }

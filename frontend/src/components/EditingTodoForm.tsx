@@ -1,14 +1,6 @@
 import {ChangeEvent, FormEvent, useState} from "react";
+import { EditTodoFormProps } from "../services/Interfaces";
 
-type Todo = {
-    id: number;
-    name: string;
-}
-
-type EditTodoFormProps = {
-    editTask: (taskName: string, taskId: number) => void;
-    task: Todo;
-}
 
 export function EditTodoForm({editTask, task} : EditTodoFormProps){
     const [value, setValue] = useState("")

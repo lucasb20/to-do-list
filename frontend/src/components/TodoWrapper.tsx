@@ -23,24 +23,24 @@ export function TodoWrapper(){
                 break
             }
         }
-        setTodos(todos.map(todo => todo.id === id ? {...todo, completed: !todo.completed} : todo ))
+        setTodos(todos.map((todo : TodoFinal) => todo.id === id ? {...todo, completed: !todo.completed} : todo ))
     }
 
     const deleteTodo = (id : number) => {
         deleteTodoDetail(id)
         .then(() => {
-            setTodos(todos.filter( todo => todo.id !== id ))
+            setTodos(todos.filter( (todo : TodoFinal) => todo.id !== id ))
         })
     }
 
     const editTodo = (id : number) => {
-        setTodos(todos.map(todo => todo.id === id ? {...todo, isEditing: !todo.isEditing} : todo ))
+        setTodos(todos.map( (todo : TodoFinal) => todo.id === id ? {...todo, isEditing: !todo.isEditing} : todo ))
     }
 
     const editTask = (value : string, id : number) => {
         putTodoDetail(id, {task: value, completed: false})
             .then(() => {
-                setTodos(todos.map(todo => todo.id === id ? {...todo, task: value, isEditing: !todo.isEditing} : todo ))
+                setTodos(todos.map( (todo : TodoFinal) => todo.id === id ? {...todo, task: value, isEditing: !todo.isEditing} : todo ))
             })
     }
 
