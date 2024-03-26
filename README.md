@@ -28,6 +28,13 @@
 3. Run `flask --app api db init` to start migrations, `flask --app api db migrate` to run migrations and `flask --app api db upgrade` to apply migrations to the database
 4. Run `flask --app api run` to run development mode
 
+**Docker Compose**
+
+If you have Docker installed, you can also run the project using Docker Compose.
+
+1. Navigate to the project directory where the `docker-compose.yml` file is located
+
+2. Run `docker-compose up --build` command to build and start the containers
 
 **Screenshots**
 
