@@ -23,7 +23,7 @@ def create_app():
     db.init_app(app)
     CORS(
         app,
-        origins=["http://localhost:5173",]
+        origins=["http://localhost:5173", "http://localhost:4173"]
     )
     Migrate(app, db)
     api = Api(app)

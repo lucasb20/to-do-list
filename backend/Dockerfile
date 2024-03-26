@@ -9,4 +9,7 @@ COPY . .
 
 EXPOSE 5000
 
-CMD [ "bash", "./script.sh" ]
+CMD flask --app api db init && \
+    flask --app api db migrate && \
+    flask --app api db upgrade && \
+    flask --app api run --host=0.0.0.0
