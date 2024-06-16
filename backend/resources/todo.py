@@ -1,9 +1,9 @@
 from flask.views import MethodView
 from flask_smorest import Blueprint, abort
 from sqlalchemy.exc import SQLAlchemyError
-from backend.schemas import TodoSchema, TodoUpdateSchema
-from backend.models import TodoModel
-from backend.db import db
+from schemas import TodoSchema, TodoUpdateSchema
+from models import TodoModel
+from db import db
 
 bp = Blueprint("todos", __name__, description="Operations on todos")
 
@@ -27,8 +27,8 @@ class Todo(MethodView):
 
 @bp.route("/todo/<id>")
 class Todo(MethodView):
-    @bp.response(200,TodoSchema)
     @bp.arguments(TodoUpdateSchema)
+    @bp.response(200,TodoSchema)
     def put(self,todo_data,id):
         todo = TodoModel.query.get(id)
         if todo:

@@ -1,1 +1,1 @@
-from .todo import TodoSchema, TodoUpdateSchema
+from schemas.todo import TodoSchema, TodoUpdateSchema

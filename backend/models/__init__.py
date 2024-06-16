@@ -1,1 +1,1 @@
-from .todo import TodoModel
+from models.todo import TodoModel

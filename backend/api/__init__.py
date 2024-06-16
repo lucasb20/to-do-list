@@ -2,8 +2,8 @@ from flask import Flask
 from flask_cors import CORS
 from flask_smorest import Api
 from flask_migrate import Migrate
-from backend.resources import TodoBlueprint
-from backend.db import db
+from resources import TodoBlueprint
+from db import db
 
 def create_app():
     app = Flask(__name__)
@@ -21,10 +21,7 @@ def create_app():
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db' 
 
     db.init_app(app)
-    CORS(
-        app,
-        origins=["http://localhost:5173", "http://localhost:4173"]
-    )
+    CORS(app)
     Migrate(app, db)
     api = Api(app)
 

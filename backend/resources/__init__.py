@@ -1,1 +1,1 @@
-from .todo import bp as TodoBlueprint
+from resources.todo import bp as TodoBlueprint
