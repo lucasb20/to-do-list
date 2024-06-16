@@ -11,9 +11,9 @@
 
 **System requirements**
 
-* Python 3.10
-* Node.js 20.10
-* NPM 10.2
+* Python 3.x
+* Node.js 20.x
+* NPM 10.x
 
 **Frontend application installation**
 
@@ -25,8 +25,8 @@
 
 1. Enter the backend application folder
 2. Run `pip install -r requirements` command to install dependencies
-3. Run `flask --app api db init` to start migrations, `flask --app api db migrate` to run migrations and `flask --app api db upgrade` to apply migrations to the database
-4. Run `flask --app api run` to run development mode
+3. Run `flask db init` to start migrations, `flask db migrate` to run migrations and `flask db upgrade` to apply migrations to the database
+4. Run `flask run` to run development mode
 
 **Docker Compose**
 
