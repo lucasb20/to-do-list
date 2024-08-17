@@ -1,14 +1,14 @@
 import { TodoBase } from "./Interfaces"
 
-const API_URL = 'http://localhost:5000'
+const API_URL = "http://localhost:8001"
 
 export async function getTodoList(){
-    const response = await fetch(`${API_URL}/todo`)
+    const response = await fetch(`${API_URL}/todo/`)
     return response.json()
 }
 
 export async function postTodo(data : TodoBase){
-    const response = await fetch(`${API_URL}/todo`, {
+    const response = await fetch(`${API_URL}/todo/`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
