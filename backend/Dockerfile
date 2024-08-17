@@ -6,10 +6,10 @@ COPY requirements.txt ./
 RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
-
-EXPOSE 5000
-
-CMD flask db init && \
+RUN flask db init && \
     flask db migrate && \
-    flask db upgrade && \
-    flask run --host=0.0.0.0
+    flask db upgrade
+
+EXPOSE 80
+
+CMD flask run --host=0.0.0.0 --port=80
