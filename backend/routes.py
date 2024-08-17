@@ -1,48 +1,48 @@
 from flask.views import MethodView
-from flask_smorest import Blueprint, abort
+from flask import jsonify, request, abort
 from sqlalchemy.exc import SQLAlchemyError
 from schemas import TodoSchema, TodoUpdateSchema
+from marshmallow.exceptions import ValidationError
 from models import TodoModel
 from db import db
 
-bp = Blueprint("todos", __name__, description="Operations on todos")
-
-@bp.route("/todo")
 class Todo(MethodView):
-    @bp.response(200,TodoSchema(many=True))
     def get(self):
         todos = TodoModel.query.all()
-        return todos
+        return jsonify(TodoSchema(many=True).dump(todos)), 200
 
-    @bp.arguments(TodoSchema)
-    @bp.response(200,TodoSchema)
-    def post(self, todo_data):
-        todo = TodoModel(**todo_data)
+    def post(self):
+        try:
+            todo = TodoSchema().load(request.get_data())
+        except ValidationError as e:
+            return jsonify(e.messages), 404
+
         try:
             db.session.add(todo)
             db.session.commit()
         except SQLAlchemyError:
             abort(500, message='ERRO')
-        return todo
+        return jsonify(TodoSchema().dump(todo)), 200
 
-@bp.route("/todo/<id>")
-class Todo(MethodView):
-    @bp.arguments(TodoUpdateSchema)
-    @bp.response(200,TodoSchema)
-    def put(self,todo_data,id):
+class TodoDetail(MethodView):
+    def put(self, id):
+        try:
+            todo = TodoUpdateSchema().load(request.get_data())
+        except ValidationError as e:
+            return jsonify(e.messages), 404
+        
         todo = TodoModel.query.get(id)
         if todo:
-            todo.task = todo_data["task"]
-            todo.completed = todo_data["completed"]
+            todo.task = todo["task"]
+            todo.completed = todo["completed"]
         else:
-            todo = TodoModel(id=id, **todo_data)
+            todo = TodoModel(id=id, **todo)
 
         db.session.add(todo)
         db.session.commit()
 
-        return todo
+        return jsonify(TodoSchema().dump(todo)), 200
 
-    @bp.response(200, TodoSchema)
     def delete(self, id):
         todo = TodoModel.query.get_or_404(id)
         try:
@@ -50,4 +50,4 @@ class Todo(MethodView):
             db.session.commit()
         except SQLAlchemyError:
             abort(500, message='ERRO')
-        return todo
+        return jsonify(TodoSchema().dump(todo)), 200

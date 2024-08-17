@@ -1,7 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 from flask_migrate import Migrate
-from resources import TodoBlueprint
+from routes import Todo, TodoDetail
 from db import db
 
 def create_app():
@@ -16,6 +16,7 @@ def create_app():
     CORS(app)
     Migrate(app, db)
 
-    api.register_blueprint(TodoBlueprint)
+    app.add_url_rule(f"/todo/", view_func=Todo.as_view("todos"))
+    app.add_url_rule(f"/todo/<int:id>", view_func=TodoDetail.as_view("todoDetail"))
 
     return app
