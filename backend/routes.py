@@ -13,15 +13,16 @@ class Todo(MethodView):
 
     def post(self):
         try:
-            todo = TodoSchema().load(request.get_data())
+            data = TodoSchema().load(request.get_json())
         except ValidationError as e:
             return jsonify(e.messages), 404
 
         try:
+            todo = TodoModel(**data)
             db.session.add(todo)
             db.session.commit()
-        except SQLAlchemyError:
-            abort(500, message='ERRO')
+        except SQLAlchemyError as e:
+            abort(500)
         return jsonify(TodoSchema().dump(todo)), 200
 
 class TodoDetail(MethodView):
@@ -49,5 +50,5 @@ class TodoDetail(MethodView):
             db.session.delete(todo)
             db.session.commit()
         except SQLAlchemyError:
-            abort(500, message='ERRO')
+            abort(500)
         return jsonify(TodoSchema().dump(todo)), 200
